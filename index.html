@@ -134,24 +134,30 @@
     left: 50%;
     bottom: 98px;
     transform: translateX(-50%);
-    width: 62px;
-    height: 62px;
-    border: 0;
-    border-radius: 50%;
-    font-size: 30px;
+    min-width: 150px;
+    height: 48px;
+    padding: 0 18px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 999px;
+    font-size: 18px;
+    color: #fff;
+    font-family: var(--quicksand);
+    font-weight: 700;
     cursor: pointer;
     display: none;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at 30% 30%, #fff6bc, #ff7b88);
-    box-shadow: 0 10px 30px rgba(255, 123, 136, .55), 0 0 0 2px rgba(255,255,255,.5) inset;
+    background: rgba(0,0,0,.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
     z-index: 9999;
     transition: transform .2s ease, box-shadow .2s ease;
     }
 
     #giftBtn:hover {
     transform: translateX(-50%) scale(1.08);
-    box-shadow: 0 12px 32px rgba(255, 123, 136, .7), 0 0 0 2px rgba(255,255,255,.7) inset;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .45);
     }
 
     
@@ -270,7 +276,7 @@
     <div id="copy">
       <p class="text-center text-white ">🪄 Anything for you...💝 </p>
       </div>
-    <button id="giftBtn" type="button" aria-label="Open surprise gift">🎁</button>
+    <button id="giftBtn" type="button" aria-label="Open my heart">Open my 💘</button>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
