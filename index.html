@@ -132,7 +132,7 @@
     #giftBtn {
     position: fixed;
     left: 50%;
-    bottom: 78px;
+    bottom: 98px;
     transform: translateX(-50%);
     width: 62px;
     height: 62px;
@@ -276,12 +276,13 @@
 
 <script>
 var teksSekarang = 1;const body = document.querySelector("body"); audio = new Audio('' + linkmp3.src); 
+var giftUnlocked = false;
 var swiper = new Swiper(".mySwiper", {
     pagination: {el: ".swiper-pagination", dynamicBullets: false,},
     on: {
     slideChange: function () {
         const giftBtn = document.getElementById("giftBtn");
-        giftBtn.style.display = this.activeIndex === this.slides.length - 1 ? "flex" : "none";
+        giftBtn.style.display = (this.activeIndex === this.slides.length - 1 && giftUnlocked) ? "flex" : "none";
 
         teksSekarang++;
         teksScale = document.querySelector('#teks' + teksSekarang);
@@ -380,6 +381,11 @@ function katanimasi3(){
                     stiker4.classList.remove("scale0");
                     stiker4.classList.add("scale1");
                 },400);
+
+                setTimeout(function(){
+                    giftUnlocked = true;
+                    document.getElementById("giftBtn").style.display = "flex";
+                }, 900);
             
     },}).go();
 }
