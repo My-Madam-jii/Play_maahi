@@ -129,6 +129,31 @@
     cursor: pointer;
     }
 
+    #giftBtn {
+    position: fixed;
+    left: 50%;
+    bottom: 78px;
+    transform: translateX(-50%);
+    width: 62px;
+    height: 62px;
+    border: 0;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 30% 30%, #fff6bc, #ff7b88);
+    box-shadow: 0 10px 30px rgba(255, 123, 136, .55), 0 0 0 2px rgba(255,255,255,.5) inset;
+    z-index: 9999;
+    transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    #giftBtn:hover {
+    transform: translateX(-50%) scale(1.08);
+    box-shadow: 0 12px 32px rgba(255, 123, 136, .7), 0 0 0 2px rgba(255,255,255,.7) inset;
+    }
+
     
     /* Fade out animation */
     @keyframes click-animation {
@@ -245,6 +270,7 @@
     <div id="copy">
       <p class="text-center text-white ">🪄 Anything for you...💝 </p>
       </div>
+    <button id="giftBtn" type="button" aria-label="Open surprise gift">🎁</button>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -254,6 +280,9 @@ var swiper = new Swiper(".mySwiper", {
     pagination: {el: ".swiper-pagination", dynamicBullets: false,},
     on: {
     slideChange: function () {
+        const giftBtn = document.getElementById("giftBtn");
+        giftBtn.style.display = this.activeIndex === this.slides.length - 1 ? "flex" : "none";
+
         teksSekarang++;
         teksScale = document.querySelector('#teks' + teksSekarang);
         stikerScale = document.querySelector('#stiker' + teksSekarang);
@@ -440,6 +469,19 @@ document.addEventListener('click', function() {
            swiper.slideNext();
         }
     }
+});
+
+document.getElementById("giftBtn").addEventListener("click", function () {
+    const targetUrl = "https://my-madam-jii.github.io/Maahi_gallery/";
+
+    audio.pause();
+    audio.src = "./assets/setlove.mp3";
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+
+    setTimeout(function () {
+        window.location.href = targetUrl;
+    }, 700);
 });
 </script>
 <script>
