@@ -476,12 +476,14 @@ document.getElementById("giftBtn").addEventListener("click", function () {
 
     audio.pause();
     audio.src = "./assets/setlove.mp3";
+    audio.loop = true;
     audio.currentTime = 0;
     audio.play().catch(() => {});
 
-    setTimeout(function () {
+    const newTab = window.open(targetUrl, "_blank");
+    if (!newTab) {
         window.location.href = targetUrl;
-    }, 700);
+    }
 });
 </script>
 <script>
